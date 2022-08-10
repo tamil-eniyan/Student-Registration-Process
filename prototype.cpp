@@ -1,5 +1,5 @@
 #include <bits/stdc++.h>
-
+using namespace std;
 class auth{
     public:
 //data members
@@ -120,9 +120,9 @@ class auth{
        int who;
        cout<<endl;
     cout << "      MENU     "<<endl;
-    cout << "1.Student"<<endl;
-    cout << "2.Teacher"<<endl;
-    cout << "3.Finance Dept."<<endl;
+    cout << "  1.Student"<<endl;
+    cout << "  2.Teacher"<<endl;
+    cout << "  3.Finance Dept."<<endl;
     cout << "Enter your choice : ";
     cin>>who;
     
@@ -233,7 +233,7 @@ int verify()
             cout<<endl<<"Wrong input!!!";
             return(4);            
         }
-        
+        return(0);
         }
 
 ///login function        
@@ -265,14 +265,14 @@ int login()
         else cout<<endl<<"Either ID id password is wrong"<<endl<<"If facing dificulities contact the tech department"<<endl;        //wrong password or username
         
     }
-    
+    return(0);
 }
 
 };
 
 
 
-using namespace std;
+
 int main()
 {
       int test=100;  
