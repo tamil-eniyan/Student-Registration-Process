@@ -1,0 +1,1 @@
+sno	name	regno	semester	section	cource	transid	verified	regis
