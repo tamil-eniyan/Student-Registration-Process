@@ -55,11 +55,12 @@ class auth{
     cout << "  1.Student"<<endl;
     cout << "  2.Teacher"<<endl;
     cout << "  3.Finance Dept."<<endl;
+    cout << "  4.Admin"<<endl;
     cout << "Enter your choice : ";
     cin>>who;
     
     
-    if(who=="1"||who=="2"||who=="3")          //check if the input is right or wrong
+    if(who=="1"||who=="2"||who=="3"||who=="4")          //check if the input is right or wrong
         return(stoi(who));                    //right then send the data recived
     else
         return(0);                      //else return 0
@@ -178,15 +179,48 @@ int verify()
                         return(0);
                         break;
                     }
-                    
-                    
         
                 }   fedata.close();            
             }    
         }
+
+        if(whoid==4)                                    
+        {
+
+            cout<<endl<<"Enter the Employee ID : ";
+            cin>>tempid;
+            cout<<endl<<"Enter the password : ";
+            cin>>tempp;
+            tempid=tempid + space + tempp;
+           
+            
+            ifstream fadmin ("admin.txt");               
+    
+            if (fadmin.is_open())                 
+            {
+                while (! fadmin.eof() ) {
+
+                    getline (fadmin,line); 
+                    
+            
+                    if(line == tempid){
+                
+                        return(4);
+                        break;
+                    
+                    }
+                    if(fadmin.eof()!=0){
+                        return(0);
+                        break;
+                    }
+        
+                }   fadmin.close();            
+            }    
+        }        
+
         else{
             cout<<endl<<"Wrong input !!!!!!"<<endl<<"choose from 1,2,3"<<endl;
-            return(4);
+            return(5);
         }
         
 
@@ -215,7 +249,12 @@ int login()
             return(3);
             break;
         }
-        else if(pointer==4){                                                 //login as a employee       
+        else if(pointer==4){                                                 //login as a admin       
+            cout<<endl<<"Succussfuly logined as a admin"<<endl;
+            return(4);
+            break;
+        }
+        else if(pointer==5){                                                 //wrong input     
             pointer=0;
         }
         
@@ -238,11 +277,14 @@ int main()
         if(test==1){
             cout<<"student";
         }
-        else if(test=2){
+        else if(test==2){
             cout<<"Teacher";
         }
-        else if(test=3){
+        else if(test==3){
             cout<<"Finance Dept.";
+        }
+         else if(test==4){
+            cout<<"Admin";
         }
     return 0;   
 }
