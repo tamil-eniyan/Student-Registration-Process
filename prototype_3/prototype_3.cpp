@@ -665,6 +665,168 @@ int menu(){
 };
 
 
+class admin{
+public:
+
+    int menu(){
+                int input;
+                int i=0;
+                int l=0;
+                while(i==0){
+                    cout<<"\n                  Menu                     \n";
+                    cout<<"\n 1.Read student password file";
+                    cout<<"\n 2.append student password file";
+                    cout<<"\n 3.Read faculty password file";
+                    cout<<"\n 4.append faculty password file";
+                    cout<<"\n 5.Read employee password file";
+                    cout<<"\n 6.append employee password file";
+
+                    cout<<"\n 7.exit";
+                    cout<<"\n Your choise : ";
+                    cin>>input;
+
+                    switch(input){
+
+                        case 1:
+                            {
+                                sdata();
+                                break;
+                            }
+                        case 2:
+                            {
+                                appendsp()
+                                break;
+                            }    
+                        case 3:
+                            {
+                                fdata();
+                                break;
+                            }    
+                        case 4:
+                            {
+                                appendfp()
+                                break;
+                            }        
+                        case 5:
+                            {
+                                edata();
+                                break;
+                            }
+                        case 6:
+                            {
+                                appendep()
+                                break;
+                            }           
+                    
+                            case 7:
+                            {
+                                i==100;
+                                cout<<"logdout";
+                                return (2);
+                                break;
+                            }
+                            case 4:
+                            {
+                               
+                            }
+                            default : cout<<"Wrong input!!";
+
+                    }
+                }
+                return(0);
+    }
+
+
+int sdata(){
+
+        string name ;
+        ifstream dataFile("sdata.txt");
+        while (!dataFile.fail() && !dataFile.eof() )
+        {
+            dataFile >> name ;
+            cout << name << endl;
+        }                    
+    return 0;
+
+    }
+    int fdata(){
+
+        string name ;
+        ifstream dataFile("fdata.txt");
+        while (!dataFile.fail() && !dataFile.eof() )
+        {
+            dataFile >> name ;
+            cout << name << endl;
+        }                    
+    return 0;
+
+    }
+    int edata(){
+
+        string name ;
+        ifstream dataFile("edata.txt");
+        while (!dataFile.fail() && !dataFile.eof() )
+        {
+            dataFile >> name ;
+            cout << name << endl;
+        }                    
+    return 0;
+
+    }
+    
+    int appendsp(){
+
+         int id = 0;
+         int pd = 0;
+            cout<<"Enter the regestration no of the student : ";
+            cin>>id;
+            cout<<"Enter the password : ";
+            cin>>pd;
+
+                        ofstream file1("sdata.txt",ios::app);
+                        file1<<id<<" "<<pd<<endl;   
+                        file1.close();
+    return 0;
+
+    }
+
+    int appendfp(){
+
+         int id = 0;
+         int pd = 0;
+            cout<<"Enter the Faculty id of the student : ";
+            cin>>id;
+            cout<<"Enter the password : ";
+            cin>>pd;
+
+                        ofstream file1("fdata.txt",ios::app);
+                        file1<<id<<" "<<pd<<endl;   
+                        file1.close();
+    return 0;
+
+    }
+
+    int appendep(){
+
+         int id = 0;
+         int pd = 0;
+            cout<<"Enter the Employee id of the student : ";
+            cin>>id;
+            cout<<"Enter the password : ";
+            cin>>pd;
+
+                        ofstream file1("edata.txt",ios::app);
+                        file1<<id<<" "<<pd<<endl;   
+                        file1.close();
+    return 0;
+
+    }
+
+
+    
+};
+
+
 int main()
 {
       int test=100;  
@@ -688,7 +850,10 @@ int main()
             cout<<"Finance Dept.";
         }
         else if(test==4){
+            admin menu;
+            test = menu.menu;
             cout<<"Admin";
+
         }
 
         
